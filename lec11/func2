@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+
+  int evenodd(int a)
+  {
+
+
+ if(a%2==0)
+ {
+
+    printf("even");
+
+
+}
+else
+{
+    printf("oddd");
+ }
+}
+int main()
+{
+    //int a;
+    //printf("enter num=");
+    //scanf("%d",&a)
+   //int data=evenodd();
+
+}
