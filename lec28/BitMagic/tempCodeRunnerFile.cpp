@@ -1,16 +1,25 @@
+//only applicable when only one unique element is accour 1 time
 #include<stdio.h>
-int main(){
-    int n;
-    printf("enter any no.:\n");
+int main()
+{
+    int arr[50];
+    int n ;
+    printf("enter no of elements in array:\n");
     scanf("%d",&n);
-    printf("\n");
-    printf("you entered %d",n);
-    printf("\n");
-    if(n&1)
+    printf("enter elements of array in which 1 element is unique :\n");
+    for(int i=0;i<n;i++)
     {
-        printf(" num. is ODD");
+     scanf("%d",&arr[i]);
     }
-    else{
-        printf("num. is EVEN");
+     for(int i=0;i<n;i++)
+    {
+     printf(" %d ",arr[i]);
     }
+    printf("\n");
+    int x=0;
+    for(int i=0;i<n;i++)
+    {
+      x=x^arr[i];
+    }
+    printf("unique element=%d",x);
 }
