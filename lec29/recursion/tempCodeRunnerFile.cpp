@@ -1,48 +1,15 @@
-/*#include<stdio.h>
-void sum(int x)
-{
-    if(x==0)
-    {
-        return;
-    }
-    sum(x-1);
-    printf("%d",x);
-}
-int main()
-{
-    sum(5);
-}*/
-
-
-
-/*#include<stdio.h>
-void sum(int x)
-{
-    if(x==0)
-    {
-        return;
-    }
-    printf("%d",x);
-    sum(x-1);
-    //printf("%d",x);
-}
-int main()
-{
-    sum(5);
-}*/
-
-
 #include<stdio.h>
-int sum(int x)
+int fac(int x)
 {
-    if(x==0)
+    if(x==0 || x==1)
     {
-        return 0;
+        return 1;
     }
-    return x+sum(x-1);
+    return  x*fac(x-1);
 }
 int main()
 {
-    int data=sum(5);
-    printf("%d",data);
+    int x;
+    int data=fac(4);
+    printf("factorial of %d = %d ",x,data);
 }
