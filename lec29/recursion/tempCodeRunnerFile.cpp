@@ -1,15 +1,18 @@
 #include<stdio.h>
-int pallindrome(int arr[],int i, int j)
+#include<conio.h>
+int check_sort(int arr[],int i,int j)
 {
-    if(i>=j)
+  if(i>=j)
+  {
+    return 1;
+  }
+    if(arr[i]>=arr[i+1])
     {
-        return 1;
+return 0;
     }
-    if(arr[i]!=arr[j])
-    {
-        return 0;
-    }
-    return pallindrome(arr,i++,j--);
+    return check_sort( arr, i+1, j);
+  
+
 }
 int main()
 {
@@ -28,15 +31,13 @@ int main()
     }
     printf("\n");
     int start=0;
-    int last=n-1;
-    int data=pallindrome(arr,start,last);
-    printf("%d",data);
-     if (data == 1) {
-        printf("The array is a palindrome.\n");
+    int end=n-1;
+    int data=check_sort( arr,start,end);
+    if (data == 1) {
+        printf("The array is a sorted.\n");
     } else {
-        printf("The array is not a palindrome.\n");
+        printf("The array is not a sorted.\n");
     }
 
     return 0;
-
 }
