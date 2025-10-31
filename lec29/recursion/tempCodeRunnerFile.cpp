@@ -1,26 +1,37 @@
 #include<stdio.h>
-#include<conio.h>
-int check_sort(int arr[],int i,int j)
+int binary_search(int arr[],int i,int j,int k)
 {
-  if(i>=j)
-  {
+if(j>k)
+{
+    return -1;
+}
+int mid=k+(j-k)/2;
+if(arr[mid]==i)
+{
     return 1;
-  }
-    if(arr[i]>=arr[i+1])
+}
+else
+{
+    if(arr[mid]>i)
     {
-return 0;
+        return binary_search( arr, i, j,mid-1);
     }
-    return check_sort( arr, i+1, j);
-  
-
+    else{
+        return binary_search( arr, i,mid+1,k);
+    }
+}
 }
 int main()
 {
     int arr[50];
-    int n;
+    int n,x;
     printf("enter no of elements in array:\n");
     scanf("%d",&n);
-    printf("enter elements:\n");
+    if (n <= 0 || n > 50) {
+        printf("Invalid number of elements. Must be between 1 and 50.\n");
+        return 1;
+    }
+    printf("enter sorted elements:\n");
     for(int i=0;i<n;i++)
     {
      scanf("%d",&arr[i]);
@@ -30,13 +41,15 @@ int main()
      printf(" %d ",arr[i]);
     }
     printf("\n");
+    printf("enter num. to be search:");
+    scanf("%d",&x);
     int start=0;
     int end=n-1;
-    int data=check_sort( arr,start,end);
+    int data=binary_search(arr,x,start,end);
     if (data == 1) {
-        printf("The array is a sorted.\n");
+        printf("element found\n");
     } else {
-        printf("The array is not a sorted.\n");
+        printf("element not found\n");
     }
 
     return 0;
