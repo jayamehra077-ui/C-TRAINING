@@ -1,14 +1,15 @@
 #include<stdio.h>
-#include<conio.h>
-int sum(int arr[],int n)
+int pallindrome(int arr[],int i, int j)
 {
-    if(n<=0)
+    if(i>=j)
+    {
+        return 1;
+    }
+    if(arr[i]!=arr[j])
     {
         return 0;
     }
-    
-    return arr[n-1]+sum(arr,n-1);
-
+    return pallindrome(arr,i++,j--);
 }
 int main()
 {
@@ -26,7 +27,16 @@ int main()
      printf(" %d ",arr[i]);
     }
     printf("\n");
-    //int arr[5]={1,2,3,4,5};
-    int data=sum(arr,n);
-    printf("sum of elements of array=%d",data);
+    int start=0;
+    int last=n-1;
+    int data=pallindrome(arr,start,last);
+    printf("%d",data);
+     if (data == 1) {
+        printf("The array is a palindrome.\n");
+    } else {
+        printf("The array is not a palindrome.\n");
+    }
+
+    return 0;
+
 }
