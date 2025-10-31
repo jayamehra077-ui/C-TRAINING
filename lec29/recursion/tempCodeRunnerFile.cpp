@@ -1,15 +1,32 @@
 #include<stdio.h>
-int fac(int x)
+#include<conio.h>
+int sum(int arr[],int n)
 {
-    if(x==0 || x==1)
+    if(n<=0)
     {
-        return 1;
+        return 0;
     }
-    return  x*fac(x-1);
+    
+    return arr[n-1]+sum(arr,n-1);
+
 }
 int main()
 {
-    int x;
-    int data=fac(4);
-    printf("factorial of %d = %d ",x,data);
+    int arr[50];
+    int n;
+    printf("enter no of elements in array:\n");
+    scanf("%d",&n);
+    printf("enter elements:\n");
+    for(int i=0;i<n;i++)
+    {
+     scanf("%d",&arr[i]);
+    }
+     for(int i=0;i<n;i++)
+    {
+     printf(" %d ",arr[i]);
+    }
+    printf("\n");
+    //int arr[5]={1,2,3,4,5};
+    int data=sum(arr,n);
+    printf("sum of elements of array=%d",data);
 }
